@@ -3,13 +3,39 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Simulador de Transportadora</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header>
+      <h1>Transportadora TSI</h1>
+    </header>
+
+    <main>
+      <div id="entradaFila">
+        <h2>Fila de Entregas</h2>
+        <button id="btnCriar" onclick="adicionarPacote()">Adicionar Pacote</button>
+        <div id="filaPacotes"></div>
+      </div>
+
+      <div id="saidaFila">
+        <h2>Entregas Realizadas</h2>
+        <button id="btnEntregar" onclick="entregarPacote()">Entregar Pacote</button>
+        <div id="entregasPacote"></div>
+      </div>
+    </main>
+
+    <footer>
+      <h2>Entrega em Andamento</h2>
+      <div id="animacao">
+        <div id="entregador"></div>
+        <div id="destino"></div>
+      </div>
+
+      <div id="infoEntrega">
+        <p>Aguardando entregas...</p>
+      </div>
+    </footer>
     
     <script src="script.js"></script>
   </body>
