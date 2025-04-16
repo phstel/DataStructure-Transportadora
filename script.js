@@ -5,6 +5,8 @@ const filaPacotes = document.getElementById('filaPacotes');
 const entregasRealizadas = document.getElementById('entregasPacote');
 const informacoesEntrega = document.getElementById('infoEntrega');
 const entregador = document.getElementById('entregador');
+const btnCriar = document.getElementById('btnCriar');
+const btnEntregar = document.getElementById('btnEntregar');
 
 async function gerarDestinatario() {
     const resposta = await fetch('https://randomuser.me/api/');
@@ -32,10 +34,14 @@ async function gerarPacote() {
 }
 
 async function adicionarPacote() {
+    btnCriar.disabled = true;
+
     const pacote = await gerarPacote();
     
     filaDePacotes.push(pacote);
     atualizarFilaDePacotes();
+
+    btnCriar.disabled = false;
 }
 
 function atualizarFilaDePacotes() {
@@ -60,6 +66,8 @@ function atualizarFilaDePacotes() {
 }
 
 function entregarPacote() {
+    btnEntregar.disabled = true;
+
     const pacote = filaDePacotes[0];
     informacoesEntrega.innerHTML = `
         <h3>Entregando pacote para ${pacote.destinatario}</h3>
@@ -79,6 +87,8 @@ function entregarPacote() {
 
             entregador.style.left = '10px';
             informacoesEntrega.innerHTML = '<h3>Entrega concluída!</h3>';
+
+            btnEntregar.disabled = false;
         }, pacote.tempoEntrega * 1000);
     }, 100);
 }
