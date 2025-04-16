@@ -13,7 +13,7 @@ async function gerarDestinatario() {
 }
 
 function gerarTempoEntrega() {
-    return Math.floor(Math.random() * 5);
+    return Math.floor(Math.random() * 5 + 1);
 };
 
 async function gerarPacote() {
@@ -53,7 +53,7 @@ function atualizarFilaDePacotes() {
             <p><strong>Endereço:</strong> ${pacote.endereco}</p>
             <p><strong>Cidade:</strong> ${pacote.cidade}</p>
             <p><strong>País:</strong> ${pacote.pais}</p>
-            <p class="tempo"><strong>Tempo estimado:</strong> ${pacote.tempoEntrega} segundos</p>
+            <p class="tempo"><strong>Tempo estimado para a entrega:</strong> ${pacote.tempoEntrega} segundos</p>
         `;
         filaPacotes.appendChild(pacoteElement);
     });
