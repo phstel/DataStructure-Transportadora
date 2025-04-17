@@ -66,6 +66,10 @@ function atualizarFilaDePacotes() {
 }
 
 function entregarPacote() {
+    if (filaDePacotes.length === 0) {
+        return;
+    }
+
     btnEntregar.disabled = true;
 
     const pacote = filaDePacotes[0];
